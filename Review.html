@@ -111,35 +111,102 @@
 
     
     <div class="reviews">
-      <div class="review">
-        <div class="review-name">Suman Devi (chinapalaparru)</div>
-        <div class="review-rating">★★★★☆</div>
-        <div class="review-message">Thanks to Avakash, I found stitching work in my own village. No need to travel far!</div>
-      </div>
-      <div class="review">
-        <div class="review-name">Ravi Kumar (Guraja)</div>
-        <div class="review-rating">★★★★★</div>
-        <div class="review-message">Easy to use and job updates come via SMS. Very helpful!</div>
-      </div>
-      <div class="review">
-        <div class="review-name">Lalitha (Mudenepalli)</div>
-        <div class="review-rating">★★★☆☆</div>
-        <div class="review-message">Good platform but needs support in Telugu language.</div>
-      </div>
-       <div class="review">
-            <div class="review-name">Sambasivarao(Kakaravada)</div>
-            <div class="review-rating">★★★★☆</div>
-            <div class="review-message">Thanks to Avakash,I found a teacher job in my own village .it help me a lot</div>
-    </div>
   </div>
+   <!-- Firebase SDK -->
+  <!-- Firebase App (compat version for old syntax) -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
 
-  <script>
-    // Simple form logic (no backend)
-    document.querySelector('.review-form').addEventListener('submit', function (e) {
+
+ <script>
+    // 🔹 Replace this config with your Firebase project config
+    const firebaseConfig = {
+      apiKey: "AIzaSyC16emUVrwlAVxqALNAvl-xOVNxxbf0X8w",
+  authDomain: "avakash-25662.firebaseapp.com",
+  projectId: "avakash-25662",
+  storageBucket: "avakash-25662.firebasestorage.app",
+  messagingSenderId: "181892515871",
+  appId: "1:181892515871:web:84e2c0754e4c4a0b52ed2a",
+  measurementId: "G-WM3JQK1SS4"
+    };
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    // Handle form submission
+    const form = document.querySelector('.review-form');
+    const reviewsContainer = document.querySelector('.reviews');
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      alert("Thank you for your review! (Form not connected to backend)");
-      this.reset();
+      const name = document.getElementById("name").value;
+
+      const email = document.getElementById("email").value;
+
+      const rating = document.getElementById("rating").value;
+
+      const message = document.getElementById("message").value;
+
+
+
+      try {
+
+        await db.collection("reviews").add({
+
+          name: name,
+
+          email: email,
+
+          rating: rating,
+
+          message: message,
+
+          timestamp: new Date()
+
+        });
+
+
+
+        alert("✅ Review submitted successfully!");
+
+        form.reset();
+
+      } catch (error) {
+
+        console.error("Error adding review: ", error);
+
+        alert("❌ Failed to submit review. Check console.");
+
+      }
+
     });
+
+    // Load and display reviews in real-time
+
+    db.collection("reviews").orderBy("timestamp", "desc").onSnapshot((snapshot) => {
+
+      reviewsContainer.innerHTML = ""; // clear old
+
+      snapshot.forEach((doc) => {
+
+        const data = doc.data();
+
+        const reviewDiv = `
+
+          <div class="review">
+
+            <div class="review-name">${data.name}</div>
+
+            <div class="review-rating">⭐ ${data.rating}</div>
+
+            <div class="review-message">${data.message}</div>
+
+          </div>`;
+
+        reviewsContainer.innerHTML += reviewDiv;
+
+      });
+
+    });
+
   </script>
 </body>
 </html>
