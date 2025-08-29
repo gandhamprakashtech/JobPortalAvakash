@@ -1,243 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Avakash - Job Portal</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  <head>
+    <meta charset="UTF-8" />
 
-    html, body {
-      height: 100%;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: url('images/vt.png') no-repeat center center fixed;
-      background-size: cover;
-      color: white;
-      position: relative;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 0;
-    }
-
-    header {
-      position: relative;
-      z-index: 1;
-      padding: 20px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    /* Logo and Brand */
-    .logo-container {
-      display: flex;
-      align-items: center;
-    }
-
-    .logo-img {
-      height: 40px;
-      width: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #ffdd57;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    }
-
-    .brand-name {
-      margin-left: 10px;
-      font-size: 24px;
-      font-weight: bold;
-      color: #ffdd57;
-      text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
-    }
-
-    /* Navigation */
-    nav {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      padding: 6px 12px;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
-    }
-
-    nav a:hover {
-      background-color: rgba(255, 221, 87, 0.8);
-      color: #000;
-    }
-
-    .profile-icon img {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      border: 2px solid #ffdd57;
-      cursor: pointer;
-      box-shadow: 0 0 6px #ffdd57;
-      vertical-align: middle;
-    }
-
-    main {
-      position: relative;
-      z-index: 1;
-      height: calc(100vh - 100px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 20px;
-    }
-
-    main h1 {
-      font-size: 48px;
-      margin-bottom: 15px;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-      color: #ffdd57;
-    }
-
-    main p {
-      font-size: 20px;
-      margin-bottom: 40px;
-      max-width: 600px;
-      color: #fff;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-    }
-
-    .btn-group {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    button {
-      cursor: pointer;
-      font-size: 18px;
-      padding: 12px 36px;
-      border: none;
-      border-radius: 8px;
-      font-weight: 700;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      background-color: #ffdd57;
-      color: #222;
-    }
-
-    button:hover {
-      background-color: #e6c84f;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .brand-name {
-        font-size: 20px;
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Avakash - Job Portal</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
 
+      html,
+      body {
+        height: 100%;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: url("images/vt.png") no-repeat center center fixed;
+        background-size: cover;
+        color: white;
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 0;
+      }
+
+      header {
+        position: relative;
+        z-index: 1;
+        padding: 20px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      /* Logo and Brand */
+      .logo-container {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo-img {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #ffdd57;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      }
+
+      .brand-name {
+        margin-left: 10px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #ffdd57;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+      }
+
+      /* Navigation */
       nav {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        padding: 6px 12px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+      }
+
+      nav a:hover {
+        background-color: rgba(255, 221, 87, 0.8);
+        color: #000;
+      }
+
+      .profile-icon img {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 2px solid #ffdd57;
+        cursor: pointer;
+        box-shadow: 0 0 6px #ffdd57;
+        vertical-align: middle;
+      }
+
+      main {
+        position: relative;
+        z-index: 1;
+        height: calc(100vh - 100px);
+        display: flex;
+        flex-direction: column;
         justify-content: center;
-        gap: 15px;
+        align-items: center;
+        text-align: center;
+        padding: 0 20px;
       }
 
       main h1 {
-        font-size: 32px;
+        font-size: 48px;
+        margin-bottom: 15px;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+        color: #ffdd57;
       }
 
       main p {
-        font-size: 16px;
-        max-width: 90%;
-      }
-
-      button {
-        font-size: 16px;
-        padding: 10px 24px;
+        font-size: 20px;
+        margin-bottom: 40px;
+        max-width: 600px;
+        color: #fff;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
       }
 
       .btn-group {
-        flex-direction: column;
-        align-items: center;
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
       }
-    }
-  </style>
-</head>
-<body>
 
-  <header>
-<div class="logo-container">
-  <img src="images/logo1_resized_256x256.png" alt="Avakashlogo" class="logo-img"/>
-  <span class="brand-name">Avakash</span>
-</div>
-    <nav>
-      <a href="review.html">Review</a>
-      <a href="about.html">About</a>
-      <a href="Contact Us.html">Contact Us</a>
-      <a class="profile-icon" href="#" onclick="handleProfileClick()">
-  <img src="Images/profile.png" alt="User Profile" />
-</a>
-    </nav>
-  </header>
+      button {
+        cursor: pointer;
+        font-size: 18px;
+        padding: 12px 36px;
+        border: none;
+        border-radius: 8px;
+        font-weight: 700;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        background-color: #ffdd57;
+        color: #222;
+      }
 
-  <main>
-    <h1>Welcome to Avakash</h1>
-    <p>Unlock your future with Avakash — where opportunities meet talent</p>
-    <div class="btn-group">
-      <button onclick="location.href='login.html'">Login</button>
-      <button onclick="location.href='signup.html'">Signup</button>
-    </div>
-  </main>
-  <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
-  import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
-  import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
+      button:hover {
+        background-color: #e6c84f;
+      }
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyDzoiMWqxYKa8UUDkwxN_BDVFYhvICZAA0",
-    authDomain: "jobportal-29f10.firebaseapp.com",
-    projectId: "jobportal-29f10",
-    storageBucket: "jobportal-29f10.appspot.com",
-    messagingSenderId: "913493555435",
-    appId: "1:913493555435:web:836d5428f5802e5a5c66ae"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const db = getFirestore(app);
-
-  window.handleProfileClick = async function () {
-    onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        // 🔍 Check if user's Firestore data exists (i.e., they have signed up fully)
-        const docRef = doc(db, "users", user.uid);
-        const docSnap = await getDoc(docRef);
-
-        if (docSnap.exists()) {
-          // ✅ Signed up and logged in → Go to profile
-          window.location.href = "userprofile.html";
-        } else {
-          // 🚧 Logged in but no signup data → Go to signup
-          window.location.href = "signup.html";
+      /* Responsive */
+      @media (max-width: 768px) {
+        .brand-name {
+          font-size: 20px;
         }
-      } else {
-        // 🔓 Not logged in at all → Go to login
-        window.location.href = "login.html";
+
+        nav {
+          justify-content: center;
+          gap: 15px;
+        }
+
+        main h1 {
+          font-size: 32px;
+        }
+
+        main p {
+          font-size: 16px;
+          max-width: 90%;
+        }
+
+        button {
+          font-size: 16px;
+          padding: 10px 24px;
+        }
+
+        .btn-group {
+          flex-direction: column;
+          align-items: center;
+        }
       }
-    });
-  };
-</script>
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo-container">
+        <img
+          src="images/logo1_resized_256x256.png"
+          alt="Avakashlogo"
+          class="logo-img"
+        />
+        <span class="brand-name">Avakash</span>
+      </div>
+      <nav>
+        <a href="review.html">Review</a>
+        <a href="about.html">About</a>
+        <a href="Contact Us.html">Contact Us</a>
+        <a class="profile-icon" href="#" onclick="handleProfileClick()">
+          <img src="Images/profile.png" alt="User Profile" />
+        </a>
+      </nav>
+    </header>
 
+    <main>
+      <h1>Welcome to Avakash</h1>
+      <p>Unlock your future with Avakash — where opportunities meet talent</p>
+      <div class="btn-group">
+        <button onclick="location.href='login.html'">Login</button>
+        <button onclick="location.href='signup.html'">Signup</button>
+      </div>
+    </main>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+      import {
+        getAuth,
+        onAuthStateChanged,
+      } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+      import {
+        getFirestore,
+        doc,
+        getDoc,
+      } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
 
-</body>
+      const firebaseConfig = {
+        apiKey: "AIzaSyDzoiMWqxYKa8UUDkwxN_BDVFYhvICZAA0",
+        authDomain: "jobportal-29f10.firebaseapp.com",
+        projectId: "jobportal-29f10",
+        storageBucket: "jobportal-29f10.appspot.com",
+        messagingSenderId: "913493555435",
+        appId: "1:913493555435:web:836d5428f5802e5a5c66ae",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const db = getFirestore(app);
+
+      window.handleProfileClick = async function () {
+        onAuthStateChanged(auth, async (user) => {
+          if (user) {
+            // 🔍 Check if user's Firestore data exists (i.e., they have signed up fully)
+            const docRef = doc(db, "users", user.uid);
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+              // ✅ Signed up and logged in → Go to profile
+              window.location.href = "userprofile.html";
+            } else {
+              // 🚧 Logged in but no signup data → Go to signup
+              window.location.href = "signup.html";
+            }
+          } else {
+            // 🔓 Not logged in at all → Go to login
+            window.location.href = "login.html";
+          }
+        });
+      };
+    </script>
+  </body>
 </html>
